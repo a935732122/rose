@@ -1,0 +1,61 @@
+﻿@extends('admin.base')
+@section('title','后台主页')
+@section('content')
+
+
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a> 
+        <span class="c-999 en">&gt;</span>
+        <span class="c-666">我的桌面</span> 
+       <!--  <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="/style/admin/javascript:location.replace(location.href);/style/admin/" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> -->
+    </nav>
+    <div class="Hui-article">
+        <article class="cl pd-20">
+            <p >欢迎您, {{$em}}<a href="{{$url}}" style="float:right">退出</a></p>
+            <!-- <p>登录次数：2</p> -->
+            <p>上次登录IP：{{$ip}}</p>
+            <p>  上次登录时间：{{$time}}</p>
+            
+            <table class="table table-border table-bordered table-bg mt-20">
+                <thead>
+                    <tr>
+                        <th colspan="2" scope="col">服务器信息</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th width="30%">操作系统</th>
+
+                        <td><span id="lbServerName"><?php echo PHP_OS?></span></td>
+                    </tr>
+                    <tr>
+                        <td>服务器域名/IP地址</td>
+                        <td><?php echo $_SERVER['SERVER_NAME'].' [ '.gethostbyname($_SERVER['SERVER_NAME']).' ]'?></td>
+                    </tr>
+                    <tr>
+                        <td>浏览器信息</td>
+                        <td><?php  echo substr($_SERVER['HTTP_USER_AGENT'], 0, 40)?></td>
+                    </tr>
+                    <tr>
+                        <td>服务器端口 </td>
+                        <td><?php echo $_SERVER['SERVER_PORT']?></td>
+                    </tr>
+                    <tr>
+                        <td>服务器IIS版本 </td>
+                        <td>  <?PHP echo $_SERVER ['SERVER_SOFTWARE']; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <footer class="footer">
+            <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br> Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+        </footer>
+    </div>
+</section>
+@endsection
