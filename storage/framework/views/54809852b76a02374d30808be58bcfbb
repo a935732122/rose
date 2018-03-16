@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="<?php echo e(asset('home/css/grzx.css')); ?>">
+	<script src = "<?php echo e(asset('home/js/jquery.js')); ?>"></script>
+	<script src = "<?php echo e(asset('home/js/list.js')); ?>"></script>
+	<!-- <script src="js/grzx.js"></script> -->
+</head>
+<body>
+	<div class="aheader">
+			<div class ="logo">
+				<div class ="logo1">
+				<a href="<?php echo e(asset('home/index')); ?>">
+						<img src="<?php echo e(asset('home/image/index.png')); ?>" alt="">
+						<div id="logo1" style="margin-top: -88px">
+							<img src="<?php echo e(asset('home/image/index2.png')); ?>" alt="">
+						</div></a>
+				</div>
+				<div class ="logo2">
+				<a href="<?php echo e(asset('home/list/index')); ?>/2">
+
+						<img src="<?php echo e(asset('home/image/index1.png')); ?>" alt="" width="128px" height="35px">
+						<div id="logo2" style="margin-top: -40px">
+							<img src="<?php echo e(asset('home/image/index3.png')); ?>" alt="" width="128px" height="35px">
+						</div>
+						</a>
+				</div>
+				<div class="login">
+
+					<p><?php if(session()->get("name")): ?>
+								<a href="<?php echo e(asset('home/personal/index')); ?>" target="_top" class="h">个人中心</a>
+								<a href=""></a>
+								<a href="<?php echo e(asset('home/login/outlogin')); ?>">退出</a>
+							<?php else: ?>
+							<a href="<?php echo e(asset('home/login/index')); ?>">登录</a>
+						<span>|</span>
+						<span><a href="">注册</a></span>
+							<?php endif; ?>
+
+					</p>
+					<p>
+						<a href=""><img src="<?php echo e(asset('home/image/shop.png')); ?>" alt="" width="20px" height="20px"></a>
+
+						
+					</p>
+					<p>
+						<span>(0)</span>
+					</p>
+				</div>
+			</div>
+			
+	
+	</div>	
+	<div class="conter">
+		<div class="logo_head">
+		
+		<a href="" class="logo_hd_im">
+		<div class="logo_head1"><img src="<?php echo e(asset('home/image/logo1.jpg')); ?>">
+		</div></a>
+		</div>
+
+
+		<div>
+		<div class="nav-container">
+				<div class="main_view_line2"></div>
+		</div>
+		</div>
+
+
+		<div class="mu_wrap wrap clearfix">
+			<div class="mu_nav_wrap"> 
+				
+			 	<!-- 订单 -->
+			 	<div class="mu_nav">
+				  	<div class="mu_title"><a href="<?php echo e(asset('home/personal/index')); ?>" style="color:red">我的订单</a></div> 
+			    </div> 
+				 <div class="mu_nav"> 
+			    	<div class="mu_title"><li><a href="<?php echo e(asset('home/personal/center')); ?>">信息管理</a></li></div> 
+			   	</div>
+			    <div class="mu_nav"> 
+				    <div class="mu_title"><a href="<?php echo e(asset('home/personal/edit')); ?>">修改密码</a></div> 
+			    </div> 
+			   
+			   	 <div class="mu_nav"> 
+			    	<div class="mu_title"><li><a href="<?php echo e(asset('home/personal/address')); ?>">地址管理</a></li></div> 
+			   	</div>
+			</div>
+
+
+
+
+			<div class="mu_content_wrap">
+   				<div class="order-title">
+        			<ul class="order-title-column clearfix">
+			            <li style="width:25%"><a href="<?php echo e(asset('home/personal/index')); ?>" style="color:red">全部订单</a></li>
+			            <li style="width:25%"><a href="<?php echo e(asset('home/personal/dfx')); ?>" style="color:black">待付款</a></li>
+			            <li style="width:25%"><a href="<?php echo e(asset('home/personal/dfh')); ?>" style="color:black">待发货</a></li>
+			            <li style="width:25%"><a href="<?php echo e(asset('home/personal/dsh')); ?>" style="color:black">待收货</a></li>
+		
+        			</ul>
+    		</div>
+
+			<?php if($i['id']): ?>
+    			<div id="orderWrap">
+	    			<ul class="lism" style="height:50px">
+			            <li style="width:15%;float:left"><a href="" style="color:black">订单号</a></li>
+			            <li style="width:20%;float:left"><a href="" style="color:black">商品名称</a></li>
+			            <li style="width:15%;float:left"><a href="" style="color:black">商品图片</a></li>
+			            <li style="width:15%;float:left"><a href="" style="color:black">商品单价</a></li>
+			            <li style="width:15%;float:left"><a href="" style="color:black">数量</a></li>
+			            <li style="width:15%;float:left"><a href="" style="color:black">状态</a></li>
+			            
+        			</ul>
+	    		</div>
+	    		<div>
+	    			<div style="float: left;">
+	    			<?php foreach($im as $v): ?>
+	    			<?php foreach($v as $ll): ?>
+	    			 <?php foreach($p as $s): ?>
+			            <?php if($ll['pid']==$s['id']): ?>
+			            <div style="width:15%;padding-top: 50px;"><?php echo e($ll['updated_at']); ?></div> 
+			            	<?php endif; ?>
+		            	<?php endforeach; ?>
+		            	<?php endforeach; ?>
+			        <?php endforeach; ?>
+			        </div>
+			        <div style="float: left;"">
+						<?php foreach($im as $v): ?>
+						<?php foreach($v as $ll): ?>
+			            <?php foreach($p as $s): ?>
+			            <?php if($ll['pid']==$s['id']): ?>
+		            	<div style="width:150px;padding-left: 50px;padding-top: 50px"><?php echo e(mb_substr($s['name'],5,6,'utf-8')); ?></div>
+		             	<?php endif; ?>
+		            	<?php endforeach; ?>
+		            	<?php endforeach; ?>
+		            <?php endforeach; ?>
+			        </div>
+		           	<div style ="float: left;">
+						<?php foreach($im as $v): ?>
+						<?php foreach($v as $ll): ?>
+			            <?php foreach($p as $s): ?>
+			            <?php if($ll['pid']==$s['id']): ?>
+			            <div style="width:25%;padding-left: 50px;padding-top: 20px" ><img src="<?php echo e($s['image']); ?>" style="width:50px;"></div>
+			              <?php endif; ?>
+			            <?php endforeach; ?>
+			            <?php endforeach; ?>
+			        <?php endforeach; ?>
+		           	</div>
+		           	<div style="float: left;">
+						<?php foreach($im as $v): ?>
+						<?php foreach($v as $ll): ?>
+			            <?php foreach($p as $s): ?>
+			            <?php if($ll['pid']==$s['id']): ?>
+			            <div style="width:15%;padding-top: 50px;padding-left: 100px"><?php echo e($s['price']); ?></div>
+			             <?php endif; ?>
+			            <?php endforeach; ?>
+			            <?php endforeach; ?>
+			            <?php endforeach; ?>
+
+		           	</div>
+		           <div style = "float: left;">
+						<?php foreach($im as $v): ?>
+						<?php foreach($v as $ll): ?>
+
+			            <div style="width:15%;padding-top: 50px;padding-left: 80px"><?php echo e($ll['pnum']); ?></div>
+			        <?php endforeach; ?>
+			        <?php endforeach; ?>
+		           </div>
+
+		           	<div style = "float: left;">
+							<?php foreach($in as $xx): ?>
+			          		<?php foreach($xx as $po): ?>
+			            
+							<?php if($po['did']['stat']==2): ?>
+			     			<?php foreach($ix as $mmm): ?>
+			     				<?php if($mmm['id']==$po['did']['id']): ?>
+			     			<div style="width:200px;padding-top: 50px;padding-left: 100px">未付款 <span style = "padding-left: 10px;"><a href="<?php echo e(asset('home/shop/much')); ?>/<?php echo e($mmm['id']); ?>" style="color:red">去付款</a></span>
+			     			<span style = "padding-left: 5px;"><a href="<?php echo e(asset('home/personal/delete')); ?>/<?php echo e($po['did']['id']); ?>" style="color:red">删除</a></span></div>
+			     				<?php endif; ?>
+			     			<?php endforeach; ?>
+			     			<?php elseif($po['did']['stat']==1 and $po['did']['status']==2): ?>
+			     			<div style ="width:150px;padding-top: 50px;padding-left: 100px">已付款未发货</div>
+			     			<?php elseif($po['did']['status']==1): ?>
+			     			<div style ="width:150px;padding-top: 50px;padding-left: 100px">已发货 <span style = "padding-left: 10px;"><a href="<?php echo e(asset('home/personal/shou')); ?>/<?php echo e($po['did']['id']); ?>" style="color:red">确认收货</a></span></div>
+			     			<?php elseif($po['did']['status']==3): ?>
+			     			<div style ="width:150px;padding-top: 50px;padding-left: 100px">已收货
+			     			     <?php foreach($p as $s): ?>
+					            	<?php if($po['pid']==$s['id']): ?>
+					          		 <span style = "padding-left: 10px;"><a href="<?php echo e(asset('home/show/ta')); ?>/<?php echo e($s['id']); ?>" style="color:red">评价</a></span>
+					             <?php endif; ?>
+					            <?php endforeach; ?>
+								
+			     			</div>
+			     			<?php endif; ?>
+			     			
+					        	<?php endforeach; ?>
+					        	<?php endforeach; ?>
+		           	</div>
+			       
+			        	
+
+
+	    		</div>
+    		</div>
+
+			<?php else: ?>
+    		<div id="orderWrap">
+	    		<div class="order-list-empty clearfix"> 
+	    		<div class="empty-icon fl"></div> 
+	    		<div class="empty-content fl"> 
+	    		<h5 class="empty-title">  
+	    		<p>你还没有购买过商品，赶紧去挑选商品～</p>  
+	    		</h5> <ul class="empty-list"> 
+	    		<li>去 <a href="<?php echo e(asset('home/list/index')); ?>/87">玫瑰</a> 看看大家都喜欢的商品</li> <li>去 <a href="<?php echo e(asset('home/list/index')); ?>/315">饰品</a> 看看正在折扣中的商品</li> 
+	    		</ul> 
+	    		</div>
+	    		</div>
+    		</div>
+			<?php endif; ?>
+			
+  			</div>
+  			
+		</div>
+		</div>
+
+
+
+		<div class="main_view_line2"></div>
+	</div>
+	<!-- 结束 -->
+		<div class="end">
+			<div class="ed_cn">
+				<a href="" class="ed_bg1">
+					<div class="ed_top">全场包邮
+						<span class="ed_bo">特殊礼品除外</span>
+					</div>
+				</a>
+				<a href="" class="ed_bg2">
+					<div class="ed_top">同城速递
+						<span class="ed_bo">支持当日送达</span>
+					</div>
+				</a>
+				<a href="" class="ed_bg3">
+					<div class="ed_top">爱的留言
+						<span class="ed_bo">支持语音与文字，可随时查阅</span>
+					</div>
+				</a>
+				<a href="" class="ed_bg4">
+					<div class="ed_top">保养物语
+						<span class="ed_bo">悉心保养，恒久保存爱意</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	<!-- 页脚 -->
+	<div class="foot_box">
+		<div class="ft_cn">
+			<a href=""><img src="<?php echo e(asset('home/image/ft.png')); ?>" alt=""></a>
+			<div class="ft_gz">关注我们
+				<a href="" class="gz_b"><img src="<?php echo e(asset('home/image/wx.png')); ?>"></a>
+				<a href="" class="gz_x"><img src="<?php echo e(asset('home/image/wb.png')); ?>"></a>
+			</div>
+		</div>
+		<ul>
+			<li><P>新手指南</P></li>
+			<li><a href="">购物流程</a></li>
+			<li><a href="">支付方式</a></li>
+			<li><a href="">常见问题</a></li>
+			<li><a href="">指圈测量</a></li>
+		</ul>
+		<ul>
+			<li><P>售后服务</P></li>
+			<li><a href="">退款说明</a></li>
+			<li><a href="">保养无语</a></li>
+		</ul>
+		<ul>
+			<li><P>物流配送</P></li>
+			<li><a href="">配送方式</a></li>
+			<li><a href="">配送服务</a></li>
+		</ul>
+		<ul style="border-right: none">
+			<li><P>关于我们</P></li>
+			<li><a href="">品牌介绍</a></li>
+			<li><a href="">联系我们</a></li>
+			<li><a href="">加入我们</a></li>
+		</ul>
+		<div class="guan2">
+			<a href=""><img src="<?php echo e(asset('home/image/guan2.png')); ?>"></a>
+			<p>微博关注roseonly</p>
+		</div>
+		<div class="guan1">
+			<a href=""><img src="<?php echo e(asset('home/image/guan1.png')); ?>"></a>
+			<p>微信关注roseonly</p>
+		</div>
+	</div>
+
+	<div class ="foot">
+				<div>京ICP备13007738号 京公网安备11010502023922 www.roseonly.com.cn；诺誓（北京）商业股份有限公司 </div>
+
+	</div>
+
+</body>
+</html>	

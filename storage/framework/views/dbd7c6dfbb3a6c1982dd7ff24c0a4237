@@ -1,0 +1,100 @@
+<?php $__env->startSection('title','roseonly官网'); ?>
+<?php $__env->startSection('js'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('home/css/nuoyanshijie.css')); ?>">
+<script type="text/javascript" src="<?php echo e(asset('home/js/lanrenzhijia.js')); ?>"></script>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+
+		<div class="conter">
+			<img src="<?php echo e(asset('home/image/nuoshi.jpg')); ?>" alt=""  >
+			<div class="lanrenzhijia">
+			
+				<div id="slider" class="lanrenzhijia2" style="margin-left: 14%;">
+				<?php foreach($nav1 as $v): ?>
+					<img src="<?php echo e($v['image']); ?>" alt="" title="#lanrenzhijia1" >
+				<?php endforeach; ?>
+
+				</div>
+			<div id="preloader"></div>
+			</div>
+			<img src="<?php echo e(asset('home/image/aswy.jpg')); ?>" alt="" style="">
+		</div>
+		<div class="gs">
+			<a href="">
+				<dl style="">
+					<dt>
+					<img src="<?php echo e(asset('home/image/ppgs.jpg')); ?>" alt="" class="pic">
+					</dt>
+					<dd>
+						<h3>品牌故事</h3>
+						<p>以爱之名创立的玫瑰，愿你永远相信真爱。</p>
+					</dd>
+					
+				</dl>
+			</a>
+			<a href="">
+			<dl>
+				<dt>
+				<img src="<?php echo e(asset('home/image/ppgs.jpg')); ?>" alt="">
+				</dt>
+				<dd>
+					<h3>品牌故事</h3>
+					<p>以爱之名创立的玫瑰，愿你永远相信真爱。</p>
+				</dd>
+			</dl>
+			</a>
+			<a href="">
+			<dl>
+				<dt>
+				<img src="<?php echo e(asset('home/image/ppgs.jpg')); ?>" alt="">
+				</dt>
+				<dd>
+					<h3>品牌故事</h3>
+					<p>以爱之名创立的玫瑰，愿你永远相信真爱。</p>
+				</dd>
+			</dl>
+			</a>
+		</div>
+		<div class="gs">
+			<a href="">
+				<dl style="">
+					<dt>
+					
+					<img src="<?php echo e(asset('home/image/ppgs.jpg')); ?>" alt="">
+					</dt>
+					<dd>
+						<h3>品牌故事</h3>
+						<p>以爱之名创立的玫瑰，愿你永远相信真爱。</p>
+					</dd>
+					
+				</dl>
+			</a>
+			<a href="">
+			<dl>
+				<dt>
+				<img src="<?php echo e(asset('home/image/ppgs.jpg')); ?>" alt="">
+				</dt>
+				<dd>
+					<h3>品牌故事</h3>
+					<p>以爱之名创立的玫瑰，愿你永远相信真爱。</p>
+				</dd>
+			</dl>
+			</a>
+			<a href="">
+			<dl>
+				<dt>
+				<img src="<?php echo e(asset('home/image/ppgs.jpg')); ?>" alt="">
+				</dt>
+				<dd>
+					<h3>品牌故事</h3>
+					<p>以爱之名创立的玫瑰，愿你永远相信真爱。</p>
+				</dd>
+			</dl>
+			</a>
+		</div>
+		<div class="main_view_line2"></div>
+	
+	<!-- 结束 -->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('home.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

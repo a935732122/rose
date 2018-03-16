@@ -1,0 +1,63 @@
+<?php $__env->startSection('title','后台主页'); ?>
+<?php $__env->startSection('content'); ?>
+<div class="Hui-article-box">
+	<form class="form form-horizontal" id="form-article-add" method="post" action="<?php echo e(asset('/admin/role/insert')); ?>" enctype="multipart/form-data">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>角色</label>
+			<div class="formControls col-xs-8 col-sm-5">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="name">
+			</div>
+		</div>
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">角色名</label>
+			<div class="formControls col-xs-8 col-sm-5">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="display_name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">角色描述</label>
+			<div class="formControls col-xs-8 col-sm-5">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="description">
+			</div>
+		</div>
+		<div class="row cl">
+				      <label class="form-label col-xs-4 col-sm-2">权限：</label>
+				      <?php foreach($permissions as $permission): ?>
+				      
+				        <input type="checkbox" value="<?php echo e($permission['id']); ?>" name="permission[]" > <?php echo e(isset($permission['display_name']) ? $permission['display_name'] : $permission['name']); ?>
+
+				     
+				      <?php endforeach; ?>
+				    </div>
+		
+		
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 添加</button>
+
+			
+			</div>
+		</div>
+		<?php echo e(csrf_field()); ?>
+
+	</form>
+	<?php if(count($errors) > 0): ?>
+				    <div class="row cl" style="margin-left:20%">
+				        <ul style="color:red;">
+				        <?php foreach($errors->all() as $error): ?>
+				            <li><?php echo e($error); ?></li>
+				        <?php endforeach; ?>
+				        </ul>
+				    </div>
+	<?php endif; ?>
+	<?php if(Session::has('message')): ?>
+										<div class="alert alert-danger">
+									        <?php echo e(Session::get('message')); ?>
+
+									    </div>
+				<?php endif; ?>
+</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,185 @@
+<?php $__env->startSection('title','roseonly官网'); ?>
+<?php $__env->startSection('js'); ?>
+<script type="text/javascript" src="<?php echo e(asset('home/js/lanrenzhijia.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+		<div class="lanrenzhijia">
+			
+			<div id="slider" class="lanrenzhijia2">
+			<?php foreach($nav1 as $v): ?>
+				<img src="<?php echo e($v['image']); ?>" alt="" title="#lanrenzhijia1">
+			<?php endforeach; ?>
+
+			</div>
+			
+
+			<div id="preloader"></div>
+		</div>
+		<!-- 内容 -->
+		<div class="new_conter">
+			<?php foreach($ff as $v): ?>
+			<div class="new_con1">
+				<div class="con_1" style="margin-right: 20px">
+					<a href=""><img src="<?php echo e($v['image']); ?>"></a>
+					<div class="con_1_text"><?php echo e($v['title']); ?></div>
+				</div>
+			</div>
+			<?php endforeach; ?>
+
+			<div class="new_title">
+				<p>热卖单品推荐</p>
+			</div>
+		<!-- 单品 -->
+			<div class="danpin">
+				<div class="dp_in">
+					<div class="hotpic">
+						
+						<ul class="pic">
+							<?php foreach($pp as $vm): ?>
+							<li>
+								<a href="<?php echo e(asset('home/show/index')); ?>/<?php echo e($vm['id']); ?>">
+									<dl>
+										<dt><img src="<?php echo e($vm['image']); ?>"></dt>
+										<dd>
+											<h3><?php echo e($vm['name']); ?></h3>
+											<p><?php echo e($vm['title']); ?></p>
+											<h2>￥<?php echo e($vm['price']); ?></h2>
+										</dd>
+									</dl>
+								</a>
+							</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>		
+		
+		<!-- 鲜花玫瑰 -->
+		<?php foreach($cmss as $vx): ?>
+		<?php foreach($xx as $mx): ?>
+		<?php if($vx['cate_id']==$mx['id']): ?>
+		<div class="xhmg">
+			<div class="xhmg_top">
+				<div class="xhmg_top1" style="margin-left: 20px;">
+					<?php echo e($mx['name']); ?>
+
+					<span class="title_line"></span>
+					<span class="title_fr">Fresh Cut Rose</span>
+				</div>
+			
+				<div class="xhmg_mr"><a href="">MORE</a>
+					<span class="mr_1"><img src="image/more.png"></span>
+				</div>
+
+				<div class="xhmg_nav" style="margin-left: 20px;">
+					<?php foreach($cmss as $vm): ?>
+					<?php if($vm['cate_id']==$vx['cate_id']): ?>
+					<div class="xhmg_nav_j">
+						<a href="">
+						<img src="<?php echo e($vm['image']); ?>" >		
+
+						<div class="xhmg_bg"></div>
+						</a>
+					</div>
+					<?php endif; ?>
+					<?php endforeach; ?>
+					
+					<div class="xhmg_nav_h">	
+					<?php foreach($cms as $vn): ?>
+					<?php if($vn['cate_id']==$vx['cate_id']): ?>
+					<a href="" class="hjza">
+					
+					<img src="<?php echo e($vn['image']); ?>">
+				
+					<div class="xhmg_bg2"></div>
+					</a>
+						<?php endif; ?>
+					<?php endforeach; ?>	
+					</div>
+					
+				</div>
+
+			</div>
+	
+		</div>
+		<?php endif; ?>
+		<?php endforeach; ?>
+		<?php endforeach; ?>
+		
+
+
+		<div class="line1"></div>
+	<!-- 专卖店 -->
+		<div class="zmd">
+			<a href="" class="zmd_left"><img src="image/zmd.jpg">
+				<div class="bg3"></div>
+			</a>
+			<a href="" class="zmd_right"><img src="image/nuo.jpg">
+				<div class="bg3"></div>
+			</a>
+		</div>
+	<!-- 结束 -->
+<script>
+window.onload = function(){
+
+	 // var oNew3 = document.getElementsByClassName('new3')[0];
+  //     var nLi = oNew3.getElementsByTagName('div');
+      
+  //     // var nspan = document.getElementsByTagName('span');
+  //     for(var i = 0;i<nLi.length;i++){
+  //       nLi[i].onmouseover = function(){
+  //         for(var j = 0;j<nLi.length;j++){
+  //           nLi[j].nextElementSibling.style.display ='none';
+  //           nLi[j].style.borderBottom = '';
+  //           nLi[j].style.color = '';
+  //         }
+  //         this.nextElementSibling.style.display = 'block';
+  //         this.style.borderBottom="5px solid #E7E7E7";    
+  //     }
+  //   }
+        // xuaEle = document.getElementById('xua');
+        // kaEle = xuaEle.getElementsByTagName('a');
+        // for( i=0;i<kaEle.length;i++){
+        //   kaEle[i].index=i;
+        //   kaEle[i].onmouseover=function(){
+        //     for(var j=0;j<kaEle.length;j++){
+        //       kaEle[j].className="";
+        //     }
+        //     dongEle.style.left="-"+this.index*515+'px';
+        //     this.className="current";
+        //   }
+        // }
+     var ahnav1 = document.getElementById('nav');
+          var ahnav2 = document.getElementById('nav1');
+           // document.title=tops;
+          window.onscroll=function(){
+            // 浏览器兼容性 Firefox Chrome
+                aa = window.navigator.userAgent;
+                if(aa.match('Firefox')){
+                  // tops = document.documentElement.scrollTop;
+                  if(document.documentElement.scrollTop>160){
+                      ahnav1.style.display = 'block';
+                      ahnav1.style.marginTop = '-160px';
+                  }
+                  if(document.documentElement.scrollTop<160){
+                      ahnav1.style.display = 'none';
+                      ahnav1.style.marginTop = '160px';
+
+                  }
+                }else{
+                  if(document.body.scrollTop>160){
+                      ahnav1.style.display = 'block';
+                      ahnav1.style.marginTop = '-160px';
+                  }
+                  if(document.body.scrollTop<160){
+                      ahnav1.style.display = 'none';
+                      ahnav1.style.marginTop = '160px';
+                  }
+                }
+          }
+}
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('home.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

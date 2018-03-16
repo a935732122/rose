@@ -1,0 +1,66 @@
+<?php $__env->startSection('title','roseonly官网'); ?>
+<?php $__env->startSection('js'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/bootstrap.min.css')); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('home/css/list1.css')); ?>" />
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+		<center>
+		<div class="content">
+			<div>
+				<img src="<?php echo e(asset('/home/image/1.jpg')); ?>" alt="" class ="guang">
+				<div class ="xuanze">
+					<h3 style="margin-top:5px"">星河为证，用玫瑰为你许下诺言——roseonly单品推荐</h3>
+					
+				</div>
+				<ul class ="list">
+					<?php foreach($list as $v): ?>
+					<li>
+					   <div></div>
+						<a href="<?php echo e(asset('/home/show/index')); ?>/<?php echo e($v['id']); ?>"><img src="<?php echo e($v['image']); ?>" alt="" width="260px" height="260px"></a>
+					<!-- 	<br> -->
+						<p><b><?php echo e($v['cateid']); ?></b></p>
+						<p class ="jieshao"><?php echo e($v['name']); ?></p>
+						<p><b>￥<?php echo e($v['price']); ?></b></p>
+
+					</li>
+					<?php endforeach; ?>
+					
+				</ul>
+			
+			</div>
+<script>
+window.onload = function(){
+	 var ahnav1 = document.getElementById('nav');
+          var ahnav2 = document.getElementById('nav1');
+           // document.title=tops;
+          window.onscroll=function(){
+            // 浏览器兼容性 Firefox Chrome
+                aa = window.navigator.userAgent;
+                if(aa.match('Firefox')){
+                  // tops = document.documentElement.scrollTop;
+                  if(document.documentElement.scrollTop>160){
+                      ahnav1.style.display = 'block';
+                      ahnav1.style.marginTop = '-160px';
+                  }
+                  if(document.documentElement.scrollTop<160){
+                      ahnav1.style.display = 'none';
+                      ahnav1.style.marginTop = '160px';
+
+                  }
+                }else{
+                  if(document.body.scrollTop>160){
+                      ahnav1.style.display = 'block';
+                      ahnav1.style.marginTop = '-160px';
+                  }
+                  if(document.body.scrollTop<160){
+                      ahnav1.style.display = 'none';
+                      ahnav1.style.marginTop = '160px';
+                  }
+                }
+          }
+}
+
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('home.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
